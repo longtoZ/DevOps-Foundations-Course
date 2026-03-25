@@ -11,6 +11,9 @@ on:
       - '.github/workflows/github-ci.yml'
   workflow_dispatch:
 
+env:
+  PYTHONPATH: ${{ github.workspace }}
+
 jobs:
   # Week 1: GitHub Actions Practice
   week1_build:
