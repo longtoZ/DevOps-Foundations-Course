@@ -3,11 +3,11 @@
 on:
   push:
     paths:
-      - 'Week 1/GitHub Actions Practice/**'
+      - 'Week 1/**'
       - '.github/workflows/github-ci.yml'
   pull_request:
     paths:
-      - 'Week 1/GitHub Actions Practice/**'
+      - 'Week 1/**'
       - '.github/workflows/github-ci.yml'
   workflow_dispatch:
 
