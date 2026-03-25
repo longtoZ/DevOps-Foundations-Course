@@ -53,7 +53,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        run: pytest -q --import-mode=importlib test_app.py
+        run: PYTHONPATH=. pytest -q --import-mode=importlib test_app.py
 
   # Week 2 placeholder: replace `if: ${{ false }}` and configure working-directory/commands.
   week2_placeholder:
