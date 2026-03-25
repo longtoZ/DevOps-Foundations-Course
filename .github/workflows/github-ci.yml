@@ -1,72 +1,72 @@
-name: DevOps Course CI
+﻿name: DevOps Course CI
 
 on:
-    push:
-        paths:
-            - 'Week 1/**'
-            - '.github/workflows/github-ci.yml'
-    pull_request:
-        paths:
-            - 'Week 1/**'
-            - '.github/workflows/github-ci.yml'
-    workflow_dispatch:
+  push:
+    paths:
+      - 'Week 1/GitHub Actions Practice/**'
+      - '.github/workflows/github-ci.yml'
+  pull_request:
+    paths:
+      - 'Week 1/GitHub Actions Practice/**'
+      - '.github/workflows/github-ci.yml'
+  workflow_dispatch:
 
 jobs:
-    # Week 1: GitHub Actions Practice
-    week1_build:
-        runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: Week 1/GitHub Actions Practice
-        steps:
-            - name: Checkout repository
-                uses: actions/checkout@v4
+  # Week 1: GitHub Actions Practice
+  week1_build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Week 1/GitHub Actions Practice
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            - name: Set up Python
-                uses: actions/setup-python@v5
-                with:
-                    python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-            - name: Install dependencies
-                run: |
-                    python -m pip install --upgrade pip
-                    pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-    week1_test:
-        needs: week1_build
-        runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: Week 1/GitHub Actions Practice
-        steps:
-            - name: Checkout repository
-                uses: actions/checkout@v4
+  week1_test:
+    needs: week1_build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Week 1/GitHub Actions Practice
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            - name: Set up Python
-                uses: actions/setup-python@v5
-                with:
-                    python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-            - name: Install dependencies
-                run: |
-                    python -m pip install --upgrade pip
-                    pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-            - name: Run tests
-                run: pytest -q --import-mode=importlib test_app.py
+      - name: Run tests
+        run: pytest -q --import-mode=importlib test_app.py
 
-    # Week 2 placeholder: replace `if: ${{ false }}` and configure working-directory/commands.
-    week2_placeholder:
-        if: ${{ false }}
-        runs-on: ubuntu-latest
-        steps:
-            - name: Week 2 placeholder
-                run: echo "Add Week 2 build/test steps here"
+  # Week 2 placeholder: replace `if: ${{ false }}` and configure working-directory/commands.
+  week2_placeholder:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Week 2 placeholder
+        run: echo "Add Week 2 build/test steps here"
 
-    # Week 3 placeholder: replace `if: ${{ false }}` and configure working-directory/commands.
-    week3_placeholder:
-        if: ${{ false }}
-        runs-on: ubuntu-latest
-        steps:
-            - name: Week 3 placeholder
-                run: echo "Add Week 3 build/test steps here"
+  # Week 3 placeholder: replace `if: ${{ false }}` and configure working-directory/commands.
+  week3_placeholder:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Week 3 placeholder
+        run: echo "Add Week 3 build/test steps here"
